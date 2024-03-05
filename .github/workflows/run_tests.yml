@@ -1,28 +1,19 @@
-name: Run Postman Collection
+name: Automated API tests using Postman CLI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: push
 
 jobs:
-  test:
+  automated-api-tests:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4.1.1
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install Newman
-      run: npm install -g newman
-
-    - name: Run Postman Collection
-      run: newman run postman_collection/PetStore.postman_collection.json --env postman_environment/PetStore.postman_environment.json
-
-
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "${{ github.workspace }}/postman/collections/PetStore.json" -e "14878406-4e7687e1-0884-4007-b6e8-71954142d323" --integration-id "159382-${{ github.run_id }}"
+          # Lint your API using Postman CLI
+          postman api lint 78eee380-bf25-4786-889c-cdf9f0b0bf94 --integration-id 159382
