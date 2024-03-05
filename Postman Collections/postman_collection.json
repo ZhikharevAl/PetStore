@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "1d34513a-1053-49d7-9c06-75fd8c8c6b20",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "petFindByStatusPending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "36934005-05e4-4da5-b661-eef4758b68d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": true,
+						"followRedirects": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pet/findByStatus?status=pending",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
+			"description": "Everything about your Pets"
+		},
+		{
+			"name": "Store",
+			"item": [],
+			"id": "6b95c7a0-df19-46d3-aad7-6fab4b528156",
+			"description": "Access to Petstore orders."
+		},
+		{
+			"name": "User",
+			"item": [],
+			"id": "6b3d72d6-d57b-4da4-a3a1-a4ab309ff685",
+			"description": "Operations about user."
+		}
+	]
+}
