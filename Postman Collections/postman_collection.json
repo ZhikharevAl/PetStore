@@ -288,7 +288,43 @@
 											"        }",
 											"    });",
 											"});",
-											""
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
@@ -369,14 +405,6 @@
 											"    });",
 											"});",
 											"var template = `",
-											"<style type=\"text/css\">",
-											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-											"    .tftable tr {background-color:#ffffff;}",
-											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-											"    .tftable tr:hover {background-color:#e0ffff;}",
-											"</style>",
-											"",
 											"<table class=\"tftable\" border=\"1\">",
 											"    <tr>",
 											"        <th>ID</th>",
@@ -489,7 +517,48 @@
 											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(0, \"Name should not be empty\");",
 											"        }",
 											"    });",
-											"});"
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Tag ID</th>",
+											"        <th>Tag Name</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{tags.0.id}}</td>",
+											"            <td>{{tags.0.name}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
@@ -572,7 +641,44 @@
 											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(0, \"Name should not be empty\");",
 											"        }",
 											"    });",
-											"});"
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
@@ -607,6 +713,48 @@
 									]
 								},
 								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusAlive",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7ca690a7-610b-4a4d-a245-74e039515d9d",
+										"exec": [
+											"pm.test('Response status code is 200', function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "b7687d89-fc76-4a71-b059-eb0d5fad4e94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=alive",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "alive"
+										}
+									]
+								}
 							},
 							"response": []
 						}
