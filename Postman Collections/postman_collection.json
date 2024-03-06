@@ -513,6 +513,89 @@
 						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
 					},
 					"response": []
+				},
+				{
+					"name": "petFindByStatusSoldAvailable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+								"exec": [
+									"pm.test('Response status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response content-type is json\", function () {",
+									"    const type = pm.response.headers.get('Content-Type');",
+									"    pm.expect(type).to.include('application/json');",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 700ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(700);",
+									"});",
+									"",
+									"pm.test(\"Status is sold or available\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.forEach(function(pet){",
+									"        pm.expect(pet.status).to.satisfy((status) => status === \"sold\" || status === \"available\", \"Status should be pending or available\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Id is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(pet) {",
+									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Name should be a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(pet){",
+									"        if (pet.hasOwnProperty('name')) {",
+									"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"        }",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ecc0b90c-f1e8-4df6-bd30-165be965522e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": true,
+						"followRedirects": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pet/findByStatus?status=sold,available",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "sold,available"
+								}
+							]
+						},
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+					},
+					"response": []
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
