@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dbfa6cce-ea84-4bc1-8866-9c53bdc86047",
+		"_postman_id": "659364dd-a994-44e6-96f1-933806e893f2",
 		"name": "PetStore",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "14878406-dbfa6cce-ea84-4bc1-8866-9c53bdc86047"
+		"_uid": "14878406-659364dd-a994-44e6-96f1-933806e893f2"
 	},
 	"item": [
 		{
@@ -18,7 +18,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fbd0f154-c85e-4a66-94eb-7fe1d40e31ef",
+										"id": "df6ae327-64c4-4a05-bf53-eebcb132abd5",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -96,7 +96,7 @@
 									}
 								}
 							],
-							"id": "d74c08b3-2645-452e-95ff-76b0ed40a3e5",
+							"id": "31eab1e2-5ed8-4c79-a66e-1ed777b20ad5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -134,7 +134,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f6b8e908-aca4-4c06-9a9b-7d1546fb3d34",
+										"id": "90513a3e-1edb-4de2-b5dd-b13b83b1dcf6",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -217,7 +217,7 @@
 									}
 								}
 							],
-							"id": "6fda5e0f-5e36-42f9-8b8b-404ed0aff550",
+							"id": "403ee526-3750-4301-aaa4-25aa3952ce97",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -250,7 +250,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3e446916-be65-4984-98e1-a42a12f0dce2",
+										"id": "81dc59c4-85eb-47ab-ae02-58ea165f4f02",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -289,13 +289,49 @@
 											"        }",
 											"    });",
 											"});",
-											""
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
-							"id": "92fc9e6c-9277-4e61-af31-ad7b49ee1764",
+							"id": "c6c188ce-9694-4041-9791-f86b627fdf97",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -328,7 +364,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "58b569db-a6f0-4162-ab34-a7ae8b9ed8d7",
+										"id": "cd162ac8-31a8-45f3-95c8-b9b57de98f8c",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -370,14 +406,6 @@
 											"    });",
 											"});",
 											"var template = `",
-											"<style type=\"text/css\">",
-											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-											"    .tftable tr {background-color:#ffffff;}",
-											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-											"    .tftable tr:hover {background-color:#e0ffff;}",
-											"</style>",
-											"",
 											"<table class=\"tftable\" border=\"1\">",
 											"    <tr>",
 											"        <th>ID</th>",
@@ -413,7 +441,7 @@
 									}
 								}
 							],
-							"id": "3e929b08-a489-4ce5-a491-03ec36f6b06c",
+							"id": "f00cf12f-9fac-4afd-86b3-a71b0200ff82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -451,7 +479,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2957f55e-7326-4b08-9254-1f1667f19e77",
+										"id": "170d90e2-fd8b-419c-9007-24e0188cff21",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -490,13 +518,54 @@
 											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(0, \"Name should not be empty\");",
 											"        }",
 											"    });",
-											"});"
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Tag ID</th>",
+											"        <th>Tag Name</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{tags.0.id}}</td>",
+											"            <td>{{tags.0.name}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
-							"id": "63499759-4c52-4545-9e8c-dca65dd0c829",
+							"id": "a7002f81-e2f3-454e-b655-9b1d61272900",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -534,7 +603,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f7a849b9-d8b8-4cef-bd7b-03ed0f35780b",
+										"id": "38f392b6-0fca-4004-a828-a8b8ef5b4657",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -573,13 +642,50 @@
 											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(0, \"Name should not be empty\");",
 											"        }",
 											"    });",
-											"});"
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
-							"id": "f076d9fe-b008-4a51-9abe-2080877edaec",
+							"id": "b4d3e343-f4ac-4d72-b0b8-8cd3ba1301fb",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -610,9 +716,62 @@
 								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
 							},
 							"response": []
+						},
+						{
+							"name": "petFindByStatusAlive",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e951e9f-bb35-46dd-af8c-b810abc63ae3",
+										"exec": [
+											"pm.test('Response status code is 200', function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has the correct Content-Type header\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "557e23d0-5f74-4889-8b14-e553c865d40f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=alive",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "alive"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
-					"id": "d76766c3-13af-44a4-9c43-1e93edd3ad49"
+					"id": "bc1b15ca-3573-4a99-bb69-6c62a1a70dee"
 				},
 				{
 					"name": "FindByID",
@@ -623,7 +782,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3a352e68-7891-4539-b0a7-710a5e9978fe",
+										"id": "b9d5fdb2-9f52-44e5-8e37-525b6555ecd0",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -710,7 +869,7 @@
 									}
 								}
 							],
-							"id": "504f9473-306c-42c2-8e66-4fd2aa975990",
+							"id": "9430e8a4-b3bc-431f-8e2c-fc81704ae8f6",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -736,7 +895,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7c543f9e-084b-4880-8b2c-a6555d96c71b",
+										"id": "1e3c50e1-c309-45ce-bd9c-3b69dad19314",
 										"exec": [
 											"pm.test(\"Response status code is 404\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(404);\r",
@@ -779,7 +938,7 @@
 									}
 								}
 							],
-							"id": "85847adb-930e-400f-9525-9c9e74746640",
+							"id": "4c29b756-ccf9-483e-9a46-1aab4c107306",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -800,22 +959,22 @@
 							"response": []
 						}
 					],
-					"id": "ecf4e1e2-4470-4498-8dd5-d8f96b95c666"
+					"id": "18df70ae-75ab-4bb6-b097-a075b1574829"
 				}
 			],
-			"id": "1d4f5bc0-216f-4085-9436-3fc8b8faa43e",
+			"id": "4254daab-3a9e-460b-bdfd-bff16939be2b",
 			"description": "Everything about your Pets."
 		},
 		{
 			"name": "Store",
 			"item": [],
-			"id": "250581c6-4613-41fd-a5c1-b65293840756",
+			"id": "f99ac13a-e9d4-4da4-9553-d75087e6fbd9",
 			"description": "Access to Petstore orders."
 		},
 		{
 			"name": "User",
 			"item": [],
-			"id": "b82e4f21-9ed6-49f6-813c-a36393a0bc21",
+			"id": "6386e409-f2d3-4326-b0bd-38e1e3a9c42d",
 			"description": "Operations about user."
 		}
 	]
