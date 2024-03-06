@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a6d0b637-6eb2-4a48-9ed3-9be015140334",
+		"_postman_id": "86cda629-5b42-4a50-9d0f-ac801362b656",
 		"name": "PetStore",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "14878406-a6d0b637-6eb2-4a48-9ed3-9be015140334"
+		"_uid": "14878406-86cda629-5b42-4a50-9d0f-ac801362b656"
 	},
 	"item": [
 		{
@@ -15,19 +15,85 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+								"id": "0efca4ca-3459-4f7e-a9cd-0368b74fead4",
 								"exec": [
-									"",
-									"pm.test(\"Response status code is 200\", function () {",
-									"  pm.response.to.have.status(200);",
+									"pm.test('Response status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
 									"});",
-									""
+									"",
+									"pm.test(\"Response content-type is json\", function () {",
+									"    const type = pm.response.headers.get('Content-Type');",
+									"    pm.expect(type).to.include('application/json');",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(700);",
+									"});",
+									"",
+									"pm.test(\"Status is pending\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].status).to.eql(\"pending\");",
+									"});",
+									"",
+									"pm.test(\"Id is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(pet) {",
+									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name should be a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(pet){",
+									"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"    });",
+									"});",
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Category ID</th>",
+									"        <th>Category Name</th>",
+									"        <th>Name</th>",
+									"        <th>Status</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr>",
+									"            <td>{{id}}</td>",
+									"            <td>{{category.id}}</td>",
+									"            <td>{{category.name}}</td>",
+									"            <td>{{name}}</td>",
+									"            <td>{{status}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()}",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "93868973-0756-41b5-b3ed-a8d383a8c2d2",
+					"id": "3ec0e397-0f49-4364-94d4-011cfea97b01",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"strictSSL": true,
@@ -54,24 +120,25 @@
 									"value": "pending"
 								}
 							]
-						}
+						},
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
 					},
 					"response": []
 				}
 			],
-			"id": "4d09afa4-abef-445b-997d-b082f0b6e76d",
+			"id": "0f716fff-b8b9-4904-a306-ebdc40a607e2",
 			"description": "Everything about your Pets"
 		},
 		{
 			"name": "Store",
 			"item": [],
-			"id": "bbffaeb9-18e8-4c8d-97af-bb80c5b36a60",
+			"id": "834c70c3-314d-45c7-8f1d-26412cc68cec",
 			"description": "Access to Petstore orders."
 		},
 		{
 			"name": "User",
 			"item": [],
-			"id": "b4679feb-7344-46b7-b4e9-df35a0d3cdf7",
+			"id": "45f127a1-67c3-4cb9-b95b-50bfa90cddc0",
 			"description": "Operations about user."
 		}
 	]
