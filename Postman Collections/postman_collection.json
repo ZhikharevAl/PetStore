@@ -140,7 +140,15 @@
 									"    const type = pm.response.headers.get('Content-Type');\r",
 									"    pm.expect(type).to.include('application/json');\r",
 									"});\r",
-									""
+									"\r",
+									"pm.test(\"Response time is less than 700ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status is pending\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].status).to.eql(\"pending\");\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
