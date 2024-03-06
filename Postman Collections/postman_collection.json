@@ -18,8 +18,18 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 8830,\r\n  \"category\": {\r\n    \"id\": 13,\r\n    \"name\": \"bird\"\r\n  },\r\n  \"name\": \"finch\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 13,\r\n      \"name\": \"chaffinch\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/pet"
 							},
 							"response": []
 						}
@@ -893,7 +903,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{baseUrl}}/pet/1"
+								"url": "{{baseUrl}}/pet/8830"
 							},
 							"response": []
 						},
