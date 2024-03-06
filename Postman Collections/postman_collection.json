@@ -619,6 +619,10 @@
 											"  pm.expect(pm.response.code).to.equal(200);\r",
 											"});\r",
 											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+											"});\r",
+											"\r",
 											"\r",
 											"pm.test(\"Response has the required fields\", function () {\r",
 											"    const responseData = pm.response.json();\r",
@@ -702,7 +706,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{baseUrl}}/pet/9223372036854588795"
+								"url": "{{baseUrl}}/pet/9223372036854591421"
 							},
 							"response": []
 						},
