@@ -123,6 +123,54 @@
 						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
 					},
 					"response": []
+				},
+				{
+					"name": "petFindByStatusSold",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8bd09bc-9839-4808-bc9b-2603b25ba281",
+								"exec": [
+									"pm.test('Response status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response content-type is json\", function () {\r",
+									"    const type = pm.response.headers.get('Content-Type');\r",
+									"    pm.expect(type).to.include('application/json');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4e00173e-3acb-43f1-a0ed-a6e5870d3d86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pet/findByStatus?status=sold",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "sold"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
