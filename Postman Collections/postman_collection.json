@@ -16,10 +16,15 @@
 							"script": {
 								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
 								"exec": [
+									"pm.test('Response status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"})",
 									"",
-									"pm.test(\"Response status code is 200\", function () {",
-									"  pm.response.to.have.status(200);",
+									"pm.test(\"Response content-type is json\", function () {",
+									"    const type = pm.response.headers.get('Content-Type');",
+									"    pm.expect(type).to.include('application/json');",
 									"});",
+									"",
 									""
 								],
 								"type": "text/javascript"
