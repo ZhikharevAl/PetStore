@@ -9,593 +9,617 @@
 			"name": "Pet",
 			"item": [
 				{
-					"name": "petFindByStatusPending",
-					"event": [
+					"name": "FindByStatus",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
-								"exec": [
-									"pm.test('Response status code is 200', function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Response content-type is json\", function () {",
-									"    const type = pm.response.headers.get('Content-Type');",
-									"    pm.expect(type).to.include('application/json');",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 500ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);",
-									"});",
-									"",
-									"pm.test(\"Status is pending\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData[0].status).to.eql(\"pending\");",
-									"});",
-									"",
-									"pm.test(\"Id is a non-negative integer\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet) {",
-									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
-									"    });",
-									"});",
-									"",
-									"",
-									"pm.test(\"Name should be a non-empty string\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet){",
-									"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
-									"    });",
-									"});",
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Category ID</th>",
-									"        <th>Category Name</th>",
-									"        <th>Name</th>",
-									"        <th>Status</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr>",
-									"            <td>{{id}}</td>",
-									"            <td>{{category.id}}</td>",
-									"            <td>{{category.name}}</td>",
-									"            <td>{{name}}</td>",
-									"            <td>{{status}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return {response: pm.response.json()}",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
+							"name": "petFindByStatusPending",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+										"exec": [
+											"pm.test('Response status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response content-type is json\", function () {",
+											"    const type = pm.response.headers.get('Content-Type');",
+											"    pm.expect(type).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);",
+											"});",
+											"",
+											"pm.test(\"Status is pending\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData[0].status).to.eql(\"pending\");",
+											"});",
+											"",
+											"pm.test(\"Id is a non-negative integer\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet) {",
+											"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+											"    });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Name should be a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet){",
+											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+											"    });",
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "36934005-05e4-4da5-b661-eef4758b68d5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"strictSSL": true,
+								"followRedirects": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=pending",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusSold",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8bd09bc-9839-4808-bc9b-2603b25ba281",
+										"exec": [
+											"pm.test('Response status code is 200', function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 700ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status is sold\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData[0].status).to.eql(\"sold\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Id is a non-negative integer\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"    pm.expect(responseData).to.be.an('array');\r",
+											"    responseData.forEach(function(pet){\r",
+											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Name should be a non-empty string\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"    \r",
+											"    pm.expect(responseData).to.be.an('array');\r",
+											"    responseData.forEach(function(pet){\r",
+											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
+											"    });\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Category ID</th>\r",
+											"        <th>Category Name</th>\r",
+											"        <th>Name</th>\r",
+											"        <th>Status</th>\r",
+											"    </tr>\r",
+											"    \r",
+											"    {{#each response}}\r",
+											"        <tr>\r",
+											"            <td>{{id}}</td>\r",
+											"            <td>{{category.id}}</td>\r",
+											"            <td>{{category.name}}</td>\r",
+											"            <td>{{name}}</td>\r",
+											"            <td>{{status}}</td>\r",
+											"        </tr>\r",
+											"    {{/each}}\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "4e00173e-3acb-43f1-a0ed-a6e5870d3d86",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=sold",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "sold"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status. The request queries pets with the status \"sold\" from the base URL appended with \"/pet/findByStatus\". The response will be in JSON format and will contain an array of pet objects with their corresponding details such as ID, category, name, photo URLs, tags, and status.\n\nExample:\n```json\n[\n    {\n        \"id\": 0,\n        \"category\": {\n            \"id\": 0,\n            \"name\": \"\"\n        },\n        \"name\": \"\",\n        \"photoUrls\": [],\n        \"tags\": [],\n        \"status\": \"\"\n    }\n]\n```\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusAvailable",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8bd09bc-9839-4808-bc9b-2603b25ba281",
+										"exec": [
+											"pm.test('Response status code is 200', function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 700ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status is available\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData[0].status).to.eql(\"available\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Id is a non-negative integer\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"    pm.expect(responseData).to.be.an('array');\r",
+											"    responseData.forEach(function(pet){\r",
+											"        pm.expect(pet.id).to.be.a('number').and.to.be.at.least(0, \"ID should be a non-negative integer\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Name should be a non-empty string\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"    pm.expect(responseData).to.be.an('array');\r",
+											"    responseData.forEach(function(pet){\r",
+											"        if (pet.hasOwnProperty('name')) {\r",
+											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
+											"        }\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "0161f5e8-de0b-4a60-99c3-b73d9ba0d452",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=available",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "available"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status. The request queries pets with the status \"sold\" from the base URL appended with \"/pet/findByStatus\". The response will be in JSON format and will contain an array of pet objects with their corresponding details such as ID, category, name, photo URLs, tags, and status.\n\nExample:\n```json\n[\n    {\n        \"id\": 0,\n        \"category\": {\n            \"id\": 0,\n            \"name\": \"\"\n        },\n        \"name\": \"\",\n        \"photoUrls\": [],\n        \"tags\": [],\n        \"status\": \"\"\n    }\n]\n```\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusPendingSold",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+										"exec": [
+											"pm.test('Response status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response content-type is json\", function () {",
+											"    const type = pm.response.headers.get('Content-Type');",
+											"    pm.expect(type).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 700ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);",
+											"});",
+											"",
+											"pm.test(\"Status is pending or sold\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    jsonData.forEach(function(pet){",
+											"        pm.expect(pet.status).to.satisfy((status) => status === \"pending\" || status === \"sold\", \"Status should be pending or sold\");",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Id is a non-negative integer\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet) {",
+											"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+											"    });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Name should be a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet){",
+											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+											"    });",
+											"});",
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Category ID</th>",
+											"        <th>Category Name</th>",
+											"        <th>Name</th>",
+											"        <th>Photo URLs</th>",
+											"        <th>Tags</th>",
+											"        <th>Status</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{category.id}}</td>",
+											"            <td>{{category.name}}</td>",
+											"            <td>{{name}}</td>",
+											"            <td>{{photoUrls}}</td>",
+											"            <td>{{tags.[0].name}}</td>",
+											"            <td>{{status}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return {response: pm.response.json()}",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "743cea9b-0271-4939-a0dc-06a08d743c03",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"strictSSL": true,
+								"followRedirects": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=pending,sold",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending,sold"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusPendingAvailable",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+										"exec": [
+											"pm.test('Response status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response content-type is json\", function () {",
+											"    const type = pm.response.headers.get('Content-Type');",
+											"    pm.expect(type).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 700ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);",
+											"});",
+											"",
+											"pm.test(\"Status is pending or available\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    jsonData.forEach(function(pet){",
+											"        pm.expect(pet.status).to.satisfy((status) => status === \"pending\" || status === \"available\", \"Status should be pending or available\");",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Id is a non-negative integer\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet) {",
+											"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Name should be a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet){",
+											"        if (pet.hasOwnProperty('name')) {",
+											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+											"        }",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "3164f0bc-7c14-42a1-a08a-abe3fcbded64",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"strictSSL": true,
+								"followRedirects": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=pending,available",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending,available"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+							},
+							"response": []
+						},
+						{
+							"name": "petFindByStatusSoldAvailable",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
+										"exec": [
+											"pm.test('Response status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response content-type is json\", function () {",
+											"    const type = pm.response.headers.get('Content-Type');",
+											"    pm.expect(type).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 700ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);",
+											"});",
+											"",
+											"pm.test(\"Status is sold or available\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    jsonData.forEach(function(pet){",
+											"        pm.expect(pet.status).to.satisfy((status) => status === \"sold\" || status === \"available\", \"Status should be pending or available\");",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Id is a non-negative integer\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet) {",
+											"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Name should be a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function(pet){",
+											"        if (pet.hasOwnProperty('name')) {",
+											"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+											"        }",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "ecc0b90c-f1e8-4df6-bd30-165be965522e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"strictSSL": true,
+								"followRedirects": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/findByStatus?status=sold,available",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "sold,available"
+										}
+									]
+								},
+								"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
+							},
+							"response": []
 						}
 					],
-					"id": "36934005-05e4-4da5-b661-eef4758b68d5",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"strictSSL": true,
-						"followRedirects": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=pending",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "pending"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
-					},
-					"response": []
+					"id": "bef1779a-94a2-4945-9a5c-8f76940a3734"
 				},
 				{
-					"name": "petFindByStatusSold",
-					"event": [
+					"name": "FindByID",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "a8bd09bc-9839-4808-bc9b-2603b25ba281",
-								"exec": [
-									"pm.test('Response status code is 200', function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response content-type is json\", function () {\r",
-									"    const type = pm.response.headers.get('Content-Type');\r",
-									"    pm.expect(type).to.include('application/json');\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 700ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status is sold\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0].status).to.eql(\"sold\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Id is a non-negative integer\", function () {\r",
-									"    const responseData = pm.response.json();\r",
-									"    pm.expect(responseData).to.be.an('array');\r",
-									"    responseData.forEach(function(pet){\r",
-									"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
-									"    });\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name should be a non-empty string\", function () {\r",
-									"    const responseData = pm.response.json();\r",
-									"    \r",
-									"    pm.expect(responseData).to.be.an('array');\r",
-									"    responseData.forEach(function(pet){\r",
-									"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
-									"    });\r",
-									"});\r",
-									"var template = `\r",
-									"<style type=\"text/css\">\r",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
-									"    .tftable tr {background-color:#ffffff;}\r",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
-									"    .tftable tr:hover {background-color:#e0ffff;}\r",
-									"</style>\r",
-									"\r",
-									"<table class=\"tftable\" border=\"1\">\r",
-									"    <tr>\r",
-									"        <th>ID</th>\r",
-									"        <th>Category ID</th>\r",
-									"        <th>Category Name</th>\r",
-									"        <th>Name</th>\r",
-									"        <th>Status</th>\r",
-									"    </tr>\r",
-									"    \r",
-									"    {{#each response}}\r",
-									"        <tr>\r",
-									"            <td>{{id}}</td>\r",
-									"            <td>{{category.id}}</td>\r",
-									"            <td>{{category.name}}</td>\r",
-									"            <td>{{name}}</td>\r",
-									"            <td>{{status}}</td>\r",
-									"        </tr>\r",
-									"    {{/each}}\r",
-									"</table>\r",
-									"`;\r",
-									"\r",
-									"function constructVisualizerPayload() {\r",
-									"    return {response: pm.response.json()}\r",
-									"}\r",
-									"\r",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
+							"name": "findByID",
+							"id": "936573c0-3866-4148-90f4-401a129642c5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
-					"id": "4e00173e-3acb-43f1-a0ed-a6e5870d3d86",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=sold",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "sold"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status. The request queries pets with the status \"sold\" from the base URL appended with \"/pet/findByStatus\". The response will be in JSON format and will contain an array of pet objects with their corresponding details such as ID, category, name, photo URLs, tags, and status.\n\nExample:\n```json\n[\n    {\n        \"id\": 0,\n        \"category\": {\n            \"id\": 0,\n            \"name\": \"\"\n        },\n        \"name\": \"\",\n        \"photoUrls\": [],\n        \"tags\": [],\n        \"status\": \"\"\n    }\n]\n```\n"
-					},
-					"response": []
-				},
-				{
-					"name": "petFindByStatusAvailable",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a8bd09bc-9839-4808-bc9b-2603b25ba281",
-								"exec": [
-									"pm.test('Response status code is 200', function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response content-type is json\", function () {\r",
-									"    const type = pm.response.headers.get('Content-Type');\r",
-									"    pm.expect(type).to.include('application/json');\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 700ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status is available\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0].status).to.eql(\"available\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Id is a non-negative integer\", function () {\r",
-									"    const responseData = pm.response.json();\r",
-									"    pm.expect(responseData).to.be.an('array');\r",
-									"    responseData.forEach(function(pet){\r",
-									"        pm.expect(pet.id).to.be.a('number').and.to.be.at.least(0, \"ID should be a non-negative integer\");\r",
-									"    });\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name should be a non-empty string\", function () {\r",
-									"    const responseData = pm.response.json();\r",
-									"    pm.expect(responseData).to.be.an('array');\r",
-									"    responseData.forEach(function(pet){\r",
-									"        if (pet.hasOwnProperty('name')) {\r",
-									"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
-									"        }\r",
-									"    });\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "0161f5e8-de0b-4a60-99c3-b73d9ba0d452",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=available",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "available"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status. The request queries pets with the status \"sold\" from the base URL appended with \"/pet/findByStatus\". The response will be in JSON format and will contain an array of pet objects with their corresponding details such as ID, category, name, photo URLs, tags, and status.\n\nExample:\n```json\n[\n    {\n        \"id\": 0,\n        \"category\": {\n            \"id\": 0,\n            \"name\": \"\"\n        },\n        \"name\": \"\",\n        \"photoUrls\": [],\n        \"tags\": [],\n        \"status\": \"\"\n    }\n]\n```\n"
-					},
-					"response": []
-				},
-				{
-					"name": "petFindByStatusPendingSold",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
-								"exec": [
-									"pm.test('Response status code is 200', function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Response content-type is json\", function () {",
-									"    const type = pm.response.headers.get('Content-Type');",
-									"    pm.expect(type).to.include('application/json');",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 700ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);",
-									"});",
-									"",
-									"pm.test(\"Status is pending or sold\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.forEach(function(pet){",
-									"        pm.expect(pet.status).to.satisfy((status) => status === \"pending\" || status === \"sold\", \"Status should be pending or sold\");",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"Id is a non-negative integer\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet) {",
-									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
-									"    });",
-									"});",
-									"",
-									"",
-									"pm.test(\"Name should be a non-empty string\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet){",
-									"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
-									"    });",
-									"});",
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Category ID</th>",
-									"        <th>Category Name</th>",
-									"        <th>Name</th>",
-									"        <th>Photo URLs</th>",
-									"        <th>Tags</th>",
-									"        <th>Status</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr>",
-									"            <td>{{id}}</td>",
-									"            <td>{{category.id}}</td>",
-									"            <td>{{category.name}}</td>",
-									"            <td>{{name}}</td>",
-									"            <td>{{photoUrls}}</td>",
-									"            <td>{{tags.[0].name}}</td>",
-									"            <td>{{status}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return {response: pm.response.json()}",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "743cea9b-0271-4939-a0dc-06a08d743c03",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"strictSSL": true,
-						"followRedirects": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=pending,sold",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "pending,sold"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
-					},
-					"response": []
-				},
-				{
-					"name": "petFindByStatusPendingAvailable",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
-								"exec": [
-									"pm.test('Response status code is 200', function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Response content-type is json\", function () {",
-									"    const type = pm.response.headers.get('Content-Type');",
-									"    pm.expect(type).to.include('application/json');",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 700ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);",
-									"});",
-									"",
-									"pm.test(\"Status is pending or available\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.forEach(function(pet){",
-									"        pm.expect(pet.status).to.satisfy((status) => status === \"pending\" || status === \"available\", \"Status should be pending or available\");",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"Id is a non-negative integer\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet) {",
-									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"Name should be a non-empty string\", function () {",
-									"    const responseData = pm.response.json();",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet){",
-									"        if (pet.hasOwnProperty('name')) {",
-									"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
-									"        }",
-									"    });",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "3164f0bc-7c14-42a1-a08a-abe3fcbded64",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"strictSSL": true,
-						"followRedirects": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=pending,available",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "pending,available"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
-					},
-					"response": []
-				},
-				{
-					"name": "petFindByStatusSoldAvailable",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "36f64ad0-f66c-48da-8d4d-5edf4fb2cbd1",
-								"exec": [
-									"pm.test('Response status code is 200', function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Response content-type is json\", function () {",
-									"    const type = pm.response.headers.get('Content-Type');",
-									"    pm.expect(type).to.include('application/json');",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 700ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(700);",
-									"});",
-									"",
-									"pm.test(\"Status is sold or available\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.forEach(function(pet){",
-									"        pm.expect(pet.status).to.satisfy((status) => status === \"sold\" || status === \"available\", \"Status should be pending or available\");",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"Id is a non-negative integer\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet) {",
-									"        pm.expect(pet.id).to.be.a('number').and.to.satisfy((id) => id >= 0, \"Id should be a non-negative integer\");",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"Name should be a non-empty string\", function () {",
-									"    const responseData = pm.response.json();",
-									"    pm.expect(responseData).to.be.an('array');",
-									"    responseData.forEach(function(pet){",
-									"        if (pet.hasOwnProperty('name')) {",
-									"            pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
-									"        }",
-									"    });",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "ecc0b90c-f1e8-4df6-bd30-165be965522e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"strictSSL": true,
-						"followRedirects": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/pet/findByStatus?status=sold,available",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "sold,available"
-								}
-							]
-						},
-						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of pets based on their status, with \"pending\" as the status parameter. The response returns a JSON array containing the details of the pets that match the specified status.\n\nThe response will include a status code of 200 indicating a successful request, and the content type will be in JSON format. The JSON array will consist of objects representing each pet, with details such as ID, category, name, photo URLs, tags, and status.\n\nTo add documentation for this endpoint, you can provide information on how to use the \"status\" query parameter to filter the list of pets based on their status.\n"
-					},
-					"response": []
+					"id": "fe9302de-18e9-49eb-b956-c2610525aef3"
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
