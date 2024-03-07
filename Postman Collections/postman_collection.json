@@ -9,6 +9,24 @@
 			"name": "Pet",
 			"item": [
 				{
+					"name": "UploadImadge",
+					"item": [
+						{
+							"name": "UploadImage",
+							"id": "47c86217-a0ba-4e7f-844d-d9b52c975b7d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "e8c2d594-c07f-4c47-9e7b-5aa892f49d46"
+				},
+				{
 					"name": "AddPet",
 					"item": [
 						{
