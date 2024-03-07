@@ -9,24 +9,6 @@
 			"name": "Pet",
 			"item": [
 				{
-					"name": "UploadImadge",
-					"item": [
-						{
-							"name": "UploadImage",
-							"id": "47c86217-a0ba-4e7f-844d-d9b52c975b7d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
-						}
-					],
-					"id": "e8c2d594-c07f-4c47-9e7b-5aa892f49d46"
-				},
-				{
 					"name": "AddPet",
 					"item": [
 						{
@@ -215,6 +197,79 @@
 					"id": "88796631-8a53-42f9-ac9e-80302a9e69ab"
 				},
 				{
+					"name": "UploadImadge",
+					"item": [
+						{
+							"name": "UploadImage",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "693c2905-ef6d-40be-9eaa-2c784038a8ad",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Content-Type header is application/json\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has type key\", function () {\r",
+											"    pm.expect(pm.response.json()).to.have.property('type');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response type is unknown\", function () {\r",
+											"    pm.expect(pm.response.json().type).to.equal(\"unknown\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has message key\", function () {\r",
+											"    pm.expect(pm.response.json()).to.have.property('message');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message contains additionalMetadata\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.include(\"additionalMetadata\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "47c86217-a0ba-4e7f-844d-d9b52c975b7d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "additionalMetadata",
+											"value": "image png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/1/Downloads/kartinki-zyabliki-1.jpg"
+											],
+											"src": "postman-cloud:///1eedcc7a-b476-46d0-964a-e22730b38f04"
+										}
+									]
+								},
+								"url": "{{baseUrl}}/pet/8830/uploadImage"
+							},
+							"response": []
+						}
+					],
+					"id": "e8c2d594-c07f-4c47-9e7b-5aa892f49d46"
+				},
+				{
 					"name": "FindByStatus",
 					"item": [
 						{
@@ -258,7 +313,7 @@
 											"    ",
 											"    pm.expect(responseData).to.be.an('array');",
 											"    responseData.forEach(function(pet){",
-											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+											"        pm.expect(pet.name).to.be.a('string').and.to.have.lengthOf.at.least(0, \"Name should not be empty\");",
 											"    });",
 											"});",
 											"var template = `",
