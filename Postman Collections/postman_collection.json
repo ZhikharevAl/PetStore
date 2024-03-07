@@ -111,6 +111,18 @@
 								"url": "{{baseUrl}}/pet"
 							},
 							"response": []
+						},
+						{
+							"name": "addPetInvalidInput",
+							"id": "a33a91f3-adba-4981-81da-b18a60007d9a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "88796631-8a53-42f9-ac9e-80302a9e69ab"
