@@ -119,13 +119,75 @@
 						},
 						{
 							"name": "addPetInvalidInput",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c9805c3a-f450-43a2-ad9a-3b26e1b4aa0a",
+										"exec": [
+											"pm.test(\"Response should be 405 with description Invalid input\", function () {\r",
+											"  pm.response.to.have.status(405);\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.description).to.eql('Invalid input');\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Category ID</th>\r",
+											"        <th>Category Name</th>\r",
+											"        <th>Photo URLs</th>\r",
+											"        <th>Tag ID</th>\r",
+											"        <th>Tag Name</th>\r",
+											"        <th>Status</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.category.id}}</td>\r",
+											"        <td>{{response.category.name}}</td>\r",
+											"        <td>{{response.photoUrls}}</td>\r",
+											"        <td>{{response.tags.0.id}}</td>\r",
+											"        <td>{{response.tags.0.name}}</td>\r",
+											"        <td>{{response.status}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "a33a91f3-adba-4981-81da-b18a60007d9a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n \"id\": 8831,\r\n  \"category\": {\r\n    \"id\": 13,\r\n    \"name\": \"bird\"\r\n  },\r\n  \r\n  \"tags\": [\r\n    {\r\n      \"id\": 13,\r\n      \"name\": \"chaffinch\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/pet"
 							},
 							"response": []
 						}
