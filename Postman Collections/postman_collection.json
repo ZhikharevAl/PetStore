@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "1d34513a-1053-49d7-9c06-75fd8c8c6b20",
 		"name": "PetStore",
+		"description": "This is a sample server Petstore server.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -230,7 +231,34 @@
 											"pm.test(\"Response message contains additionalMetadata\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.include(\"additionalMetadata\");\r",
 											"});\r",
-											""
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return { response: pm.response.json() }\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript"
 									}
