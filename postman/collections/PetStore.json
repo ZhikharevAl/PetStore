@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cf45240a-cad3-4c83-9959-12133a899e37",
+		"_postman_id": "e2f76629-2da9-487d-a702-01d2ba46606b",
 		"name": "PetStore",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "14878406-cf45240a-cad3-4c83-9959-12133a899e37"
+		"_uid": "14878406-e2f76629-2da9-487d-a702-01d2ba46606b"
 	},
 	"item": [
 		{
@@ -14,7 +14,91 @@
 					"item": [
 						{
 							"name": "addPet",
-							"id": "bdc1112d-c495-4484-8bb0-6c15edef378a",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7a09c5eb-57b6-4dc3-8276-da454d56c53d",
+										"exec": [
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has a valid body\", function () {\r",
+											"  pm.response.to.have.jsonBody();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains id field\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('id');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response id is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.id).to.eql(8830);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet status is available\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.status).to.eql('available');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains name field\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('name');\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Pet name is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.name).to.eql('finch');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains chaffinch tag\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.tags).to.deep.include({id: 13, name: 'chaffinch'});\r",
+											"});\r",
+											"\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Name</th>\r",
+											"        <th>Status</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.name}}</td>\r",
+											"        <td>{{response.status}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "0f3748bb-43c5-49c2-b72c-bbf48506cf18",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -41,9 +125,91 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "addPetInvalidInput",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c2a3e536-8fdd-403e-a4a4-ace69d91f9e7",
+										"exec": [
+											"pm.test(\"Response should be 405 with description Invalid input\", function () {\r",
+											"  pm.response.to.have.status(405);\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.description).to.eql('Invalid input');\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Category ID</th>\r",
+											"        <th>Category Name</th>\r",
+											"        <th>Photo URLs</th>\r",
+											"        <th>Tag ID</th>\r",
+											"        <th>Tag Name</th>\r",
+											"        <th>Status</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.category.id}}</td>\r",
+											"        <td>{{response.category.name}}</td>\r",
+											"        <td>{{response.photoUrls}}</td>\r",
+											"        <td>{{response.tags.0.id}}</td>\r",
+											"        <td>{{response.tags.0.name}}</td>\r",
+											"        <td>{{response.status}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "a38c17a3-7e7a-483f-930f-f842abac24a5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n \"id\": 8831,\r\n  \"category\": {\r\n    \"id\": 13,\r\n    \"name\": \"bird\"\r\n  },\r\n  \r\n  \"tags\": [\r\n    {\r\n      \"id\": 13,\r\n      \"name\": \"chaffinch\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
 						}
 					],
-					"id": "ebfba31e-7959-4d04-80a2-64758311c851"
+					"id": "9cc3cecc-970a-4552-8c59-4d638c507657"
 				},
 				{
 					"name": "FindByStatus",
@@ -54,7 +220,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b94a6b03-9972-4c2d-a142-98a71b438ab7",
+										"id": "e133a5d0-06d8-4681-82ba-5af3dcd13135",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -132,7 +298,7 @@
 									}
 								}
 							],
-							"id": "c50f2d99-a307-4f73-a00d-4c3835f5b09b",
+							"id": "47fc2809-411b-4bec-a8cd-2cf37e61f38f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -170,7 +336,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3b55f8b1-a15a-4e50-a212-dceb89042608",
+										"id": "7a37a0ba-3766-47dd-8205-d1e4c5ae5344",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -253,7 +419,7 @@
 									}
 								}
 							],
-							"id": "aa86b788-f1d2-400b-8427-2571ffb66d3a",
+							"id": "d48cee8d-25d6-47e7-bcfa-24c221e35f29",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -286,7 +452,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "551c99aa-e7f4-4c0d-88d0-ebf07b393aac",
+										"id": "0799bf64-f93c-43c7-8c3f-cab991c78693",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -367,7 +533,7 @@
 									}
 								}
 							],
-							"id": "61df7d61-da13-44c4-b94c-6ab1ea704061",
+							"id": "01e45543-3ff3-4955-bfe8-db1aacf34a6c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -400,7 +566,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c179eead-3fef-4bae-b0d3-c519e54446e4",
+										"id": "3dd4033b-18d2-4f9d-b161-fc60d169166f",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -477,7 +643,7 @@
 									}
 								}
 							],
-							"id": "ba1ebe1b-e310-4796-8e58-33f9388eebee",
+							"id": "489faeb7-0128-46d0-b56f-f3d964c3ff2a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -515,7 +681,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f7204bf9-2e14-4f3e-909d-096dae1727bf",
+										"id": "4f338570-8c22-4f2d-99b2-efc4d0197c55",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -601,7 +767,7 @@
 									}
 								}
 							],
-							"id": "c56dc34a-4e41-4a21-a2c1-e78fb1a8c9d1",
+							"id": "5feebc6a-0b32-444b-84e4-06d0207deefd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -639,7 +805,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cb04cec1-10fb-4973-b0b7-cf93cd102c85",
+										"id": "9e02057c-4d01-4961-91df-dbce0e190d91",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -721,7 +887,7 @@
 									}
 								}
 							],
-							"id": "510429f2-264c-4182-b758-b7e027b52115",
+							"id": "34cee186-19af-4ed5-9628-cb7632fe4ecb",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -759,7 +925,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "595f65c9-a6b3-4295-808a-9113822b8c4b",
+										"id": "0fd38cb2-8428-4974-83b2-ff9baf36d902",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -780,7 +946,7 @@
 									}
 								}
 							],
-							"id": "dfc250e9-c541-4d11-aaf5-1924177370bb",
+							"id": "4229c7dc-d103-44f8-8936-e959a67ba85e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -807,7 +973,7 @@
 							"response": []
 						}
 					],
-					"id": "156b3eea-1094-4854-8f9f-fb95e0e871cc"
+					"id": "7c87348f-07ef-40b8-ae85-ace1b3111d1c"
 				},
 				{
 					"name": "FindByID",
@@ -818,7 +984,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "97308adb-90d7-439e-844a-af0ebc96cedc",
+										"id": "f54d8ae4-9725-46d4-96ea-63f660ff98d5",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -905,7 +1071,7 @@
 									}
 								}
 							],
-							"id": "2755d46c-575c-4361-91fe-75f352d86a99",
+							"id": "735ca08f-6cf6-447b-9057-efc1e443e569",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -931,7 +1097,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f12d18d7-c213-43a5-bc52-b5c38d5334f6",
+										"id": "3716da23-d372-4be3-9562-0584d6a403c6",
 										"exec": [
 											"pm.test(\"Response status code is 404\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(404);\r",
@@ -974,7 +1140,7 @@
 									}
 								}
 							],
-							"id": "397d23b9-f76e-47d9-9150-3c697edb7670",
+							"id": "d8821d62-429d-4a51-becb-be99ef89207a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -995,22 +1161,22 @@
 							"response": []
 						}
 					],
-					"id": "ec1a8711-3a9f-4f0c-bb05-de9ba9107f58"
+					"id": "ba1c51ab-0c0c-4fe5-8dbb-3e5546c43161"
 				}
 			],
-			"id": "8f8fbbda-95ee-4009-adfe-ab1159613030",
+			"id": "be8cf399-4bde-4930-b13f-9da7549972e6",
 			"description": "Everything about your Pets."
 		},
 		{
 			"name": "Store",
 			"item": [],
-			"id": "254f3231-aa3b-407e-ba95-cff11947f007",
+			"id": "5bff5741-c949-4dee-9e1b-6171f295895d",
 			"description": "Access to Petstore orders."
 		},
 		{
 			"name": "User",
 			"item": [],
-			"id": "0a5c097b-6b80-4a9f-9232-19a78da0d6d2",
+			"id": "f6e0f3ec-15cf-4226-bb09-b672d001892a",
 			"description": "Operations about user."
 		}
 	]
