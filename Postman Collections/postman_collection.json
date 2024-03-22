@@ -1234,21 +1234,32 @@
 					"id": "fe9302de-18e9-49eb-b956-c2610525aef3"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
-					"id": "0cb11848-de96-43c1-a49a-cd02bc60f5fd"
-				},
-				{
 					"name": "UpdatePet",
-					"id": "e6f233de-20f4-46ad-b391-55d84fe18c82",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": []
-					},
-					"response": []
+					"item": [
+						{
+							"name": "UpdatePet",
+							"id": "e6f233de-20f4-46ad-b391-55d84fe18c82",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 8830,\r\n  \"category\": {\r\n    \"id\": 13,\r\n    \"name\": \"firefly\"\r\n  },\r\n  \"name\": \"finch\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 13,\r\n      \"name\": \"chaffinch\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/pet"
+							},
+							"response": []
+						}
+					],
+					"id": "0cb11848-de96-43c1-a49a-cd02bc60f5fd"
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
