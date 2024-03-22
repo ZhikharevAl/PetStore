@@ -1232,6 +1232,23 @@
 						}
 					],
 					"id": "fe9302de-18e9-49eb-b956-c2610525aef3"
+				},
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "0cb11848-de96-43c1-a49a-cd02bc60f5fd"
+				},
+				{
+					"name": "UpdatePet",
+					"id": "e6f233de-20f4-46ad-b391-55d84fe18c82",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
