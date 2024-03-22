@@ -1238,6 +1238,56 @@
 					"item": [
 						{
 							"name": "UpdatePet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d299bbef-c0bb-4f5b-8366-3541aedb4012",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has a valid body\", function () {\r",
+											"  pm.response.to.have.jsonBody();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains id field\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('id');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response id is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.id).to.eql(8830);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet status is available\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.status).to.eql('available');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains name field\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('name');\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Pet name is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.name).to.eql('firefly');\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e6f233de-20f4-46ad-b391-55d84fe18c82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
