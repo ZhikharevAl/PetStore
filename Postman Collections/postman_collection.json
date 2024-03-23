@@ -1362,6 +1362,34 @@
 					"item": [
 						{
 							"name": "UpdatePet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "58ad627f-60ad-4fb4-8a48-9315e5a1c33c",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has a valid body\", function () {\r",
+											"  pm.response.to.have.jsonBody();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.message).to.equal(8830);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "54b5c8f5-8d87-45d5-bd2e-c706449e8886",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
