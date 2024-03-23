@@ -1420,6 +1420,65 @@
 							"response": []
 						},
 						{
+							"name": "UpdatePet Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "58ad627f-60ad-4fb4-8a48-9315e5a1c33c",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response content-type is json\", function () {\r",
+											"    const type = pm.response.headers.get('Content-Type');\r",
+											"    pm.expect(type).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has a valid body\", function () {\r",
+											"  pm.response.to.have.jsonBody();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "a1814fb4-39f5-4fa2-bd2e-dd9e83abc3fc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "redfinch",
+											"type": "text"
+										},
+										{
+											"key": "statusq",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{baseUrl}}/pet/8830"
+							},
+							"response": []
+						},
+						{
 							"name": "findById",
 							"event": [
 								{
@@ -1435,17 +1494,46 @@
 											"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response fields are correct\", function () {\r",
+											"pm.test(\"ID is correct\", function () {\r",
 											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.id).to.equal(8830);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Category ID is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.category.id).to.equal(13);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Category name is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.category.name).to.equal(\"firefly\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Name is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.name).to.equal(\"redfinch\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Photo URL is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.photoUrls[0]).to.equal(\"string\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Tag ID is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.tags[0].id).to.equal(13);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Tag name is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.tags[0].name).to.equal(\"chaffinch\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
 											"  pm.expect(jsonData.status).to.equal(\"sold\");\r",
 											"});\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
