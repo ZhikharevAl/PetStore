@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ba7e1b24-67f2-47a7-8ce3-161e9ed74914",
+		"_postman_id": "f3ab95a0-4ca4-4afb-8cc4-e47af951d04d",
 		"name": "PetStore",
 		"description": "This is a sample server Petstore server.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "14878406-ba7e1b24-67f2-47a7-8ce3-161e9ed74914"
+		"_uid": "14878406-f3ab95a0-4ca4-4afb-8cc4-e47af951d04d"
 	},
 	"item": [
 		{
@@ -19,7 +19,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2a9c81f6-8dff-4969-a71f-e9403d5ace78",
+										"id": "784b6fe6-3f47-46ee-bee6-614aa5e54a8e",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -99,7 +99,7 @@
 									}
 								}
 							],
-							"id": "74caff89-0896-4f50-b0fd-6b07eb6ff80b",
+							"id": "032bb37c-a6c9-4113-8f8d-da4ac03dbfd5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -133,7 +133,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "59ef4cd7-8e96-4449-badb-bd89a444deec",
+										"id": "6eedf28a-ae4d-461c-9084-91fbe6942292",
 										"exec": [
 											"pm.test(\"Invalid input should return 405\", function () {\r",
 											"  if (pm.response.code !== 405) {\r",
@@ -183,7 +183,7 @@
 									}
 								}
 							],
-							"id": "96c68775-72dd-4b51-a2f6-716c83ec9f60",
+							"id": "de0956d0-3f67-45cf-9ce1-5fec15c68cdb",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -212,7 +212,7 @@
 							"response": []
 						}
 					],
-					"id": "ea4c11bb-7cc9-4618-8e6c-939e91c04c13"
+					"id": "d705e58a-a1f9-4979-9881-8f6fe881819c"
 				},
 				{
 					"name": "UploadImadge",
@@ -223,7 +223,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ad1b6a5f-984a-40e3-83d0-bd947dcb1a41",
+										"id": "2ae13c00-0ce2-462c-9b48-04f7c7c8a2f0",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -281,7 +281,7 @@
 									}
 								}
 							],
-							"id": "e0fd43f9-04b9-4bc6-929a-a13d09a41651",
+							"id": "930ad213-7b14-4181-88a5-800af4855cbd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -322,7 +322,7 @@
 							"response": []
 						}
 					],
-					"id": "56547f66-0330-484c-9fbf-268e46d1fd4a"
+					"id": "21e274c0-e8d1-4452-bb17-687c2936b310"
 				},
 				{
 					"name": "FindByStatus",
@@ -333,7 +333,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b6c197cb-0807-48f7-a29d-a01837626197",
+										"id": "721abc6e-ef51-4ea8-a2e5-c6dbd4af19d5",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -413,7 +413,7 @@
 									}
 								}
 							],
-							"id": "06aaede1-352e-43cc-961a-a6cbdf2a581c",
+							"id": "7bbf5597-a2f7-4a75-bc9e-1feb6217ecc2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -451,7 +451,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e78e1313-8868-4e20-841c-ec68c292b746",
+										"id": "0e5d4640-bac0-4899-9b29-95f2b7e4144a",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -534,7 +534,7 @@
 									}
 								}
 							],
-							"id": "72ae2e34-df91-4ad7-9140-1fcabd34ae17",
+							"id": "8915ec25-e07a-444c-9205-d425adde47b1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -567,7 +567,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "db829c33-20db-414f-ac33-e5b19d38c638",
+										"id": "41046d05-e801-4805-aa82-e61c3622b265",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -648,7 +648,7 @@
 									}
 								}
 							],
-							"id": "88075050-dbfa-40b1-be63-a98c68b8e3dc",
+							"id": "0ef43f9c-1652-4041-8e8a-dc547630fbb3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -681,7 +681,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ce69098c-46c3-4c43-aaf8-c1864ab400b1",
+										"id": "c8d6b649-860e-4758-b188-0b99d3481017",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -758,7 +758,7 @@
 									}
 								}
 							],
-							"id": "5bb6f92a-6b23-4282-93b5-7a5bd0234762",
+							"id": "fd57e371-786b-468b-bfc9-b3c66e6aaec9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -796,7 +796,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2bc2450f-65f4-4d76-96ff-bc28099fac01",
+										"id": "9703da16-fe70-4d36-8b43-d23ce46285eb",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -882,7 +882,7 @@
 									}
 								}
 							],
-							"id": "ff066762-9897-4a92-a87f-d6ff9f2f9b53",
+							"id": "57082287-23d1-4b8c-b897-32dd12bc8358",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -920,7 +920,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "efb92eac-4fed-4cd5-a180-acf9fe8245ab",
+										"id": "d48ebe76-d551-45fb-8607-17d3d12319f5",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -1002,7 +1002,7 @@
 									}
 								}
 							],
-							"id": "fc46e2a4-a3f5-4e95-a21e-e55695244714",
+							"id": "54fd8ee0-ad80-4683-a2ac-b3225df351dc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -1040,7 +1040,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "976eff9b-ea90-40c8-8ee6-af19b3c5b8c0",
+										"id": "3e5685ae-eaf0-4b75-8c19-ac90e5c8bf86",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1061,7 +1061,7 @@
 									}
 								}
 							],
-							"id": "46de68e7-4b1d-48f9-89e4-7db215fff10c",
+							"id": "3fd2b51e-c182-4b76-8222-ba83ec743783",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1088,7 +1088,7 @@
 							"response": []
 						}
 					],
-					"id": "22237f2b-262b-4eaa-b8a3-c254a9469a2a"
+					"id": "892d41e9-d49e-4ad1-b112-3c84f7f7845d"
 				},
 				{
 					"name": "FindByID",
@@ -1099,7 +1099,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6e96b141-6409-4dbe-bcce-f3f06085f0bb",
+										"id": "c2901ad9-3ca8-4e30-8406-60df4eed370d",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -1186,7 +1186,7 @@
 									}
 								}
 							],
-							"id": "bfda571d-a131-4e07-a575-1ee8982d568c",
+							"id": "806528d0-da67-4ba6-ba82-f6a7519750a5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1212,7 +1212,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "09998177-a2f4-4512-8fb3-d68f34917d55",
+										"id": "4e3f7664-4007-4442-b1c2-b1c3db9c8e23",
 										"exec": [
 											"pm.test(\"Response status code is 404\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(404);\r",
@@ -1255,7 +1255,7 @@
 									}
 								}
 							],
-							"id": "29b51a85-bb41-41a2-b2e5-b4c333ad7b94",
+							"id": "cf876d96-b459-4948-b44c-9be4299303f4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1276,7 +1276,7 @@
 							"response": []
 						}
 					],
-					"id": "1a646867-f705-454a-a3b0-92f7ca392f3b"
+					"id": "dc3dcc99-677a-4035-95cb-5be719abc487"
 				},
 				{
 					"name": "UpdatePet",
@@ -1287,7 +1287,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "98efbeaa-8c88-40ef-b642-6c98c21ca27a",
+										"id": "8a1b1f2f-32be-4b4e-998b-a72f3e70fe05",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1379,7 +1379,7 @@
 									}
 								}
 							],
-							"id": "f90c56ee-3659-448a-9f26-497526fb88f7",
+							"id": "7375a13f-a402-49fd-8f15-3881af508fc8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1408,7 +1408,7 @@
 							"response": []
 						}
 					],
-					"id": "ce34225d-80ec-474b-84a6-78af55f473b0"
+					"id": "2bc919b7-e6e7-4618-89f1-bbd47030c803"
 				},
 				{
 					"name": "UpdatePetFromData",
@@ -1419,7 +1419,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cb57d916-60a2-41e6-9579-91ad7a615aa0",
+										"id": "2e880851-29f6-4f38-9cf6-7c0385951535",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1439,14 +1439,41 @@
 											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
 											"});\r",
 											"\r",
-											""
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"  return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript",
 										"packages": {}
 									}
 								}
 							],
-							"id": "fc6dbd3e-b390-4101-a6eb-ab3acc21e535",
+							"id": "5f2299d1-daab-4f0a-bd76-f7ca5e186427",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1487,7 +1514,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cb1c046a-d38c-41c0-ade4-6b9e208079a3",
+										"id": "bdb6110c-88f6-4239-a709-0e1c3c600dae",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1537,14 +1564,41 @@
 											"  pm.expect(jsonData.status).to.equal(\"sold\");\r",
 											"});\r",
 											"\r",
-											""
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript",
 										"packages": {}
 									}
 								}
 							],
-							"id": "d523dcce-030e-4ce8-92be-fa8792a665f5",
+							"id": "48397da0-4936-44cc-8920-e41da956961a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1565,22 +1619,128 @@
 							"response": []
 						}
 					],
-					"id": "883ad201-1c75-4181-a17d-c5c3dbbdacdf"
+					"id": "e6bb4c7f-9d16-44e6-adae-222644bde04c"
+				},
+				{
+					"name": "DeletePet",
+					"item": [
+						{
+							"name": "DeletePet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c0301206-1743-421c-8914-e91d384d5ce5",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "863dc971-de80-4bc7-88f8-f269dcdbb1b7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "special-key",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pet/8830",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"8830"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "73cba807-e675-4378-850a-40ecc9404cc5",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(1);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Type is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.type).to.equal(\"error\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"Pet not found\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6a37dda7-7bb2-4b70-bc0f-7561b3ab05e4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pet/8830",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet",
+										"8830"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "1e0d20dc-369d-4037-8eb0-57667a9dd531"
 				}
 			],
-			"id": "297b9357-bfad-44e6-b14b-ce5fd3bc4512",
+			"id": "74a06982-1883-43ef-955f-6c7683b75d74",
 			"description": "Everything about your Pets."
 		},
 		{
 			"name": "Store",
 			"item": [],
-			"id": "0c254811-021d-4391-8fab-52c6045cdfd4",
+			"id": "60f21bcc-d4aa-4c17-95bb-a06335ace761",
 			"description": "Access to Petstore orders."
 		},
 		{
 			"name": "User",
 			"item": [],
-			"id": "4681731c-7742-4876-b74c-9c66eaf1236b",
+			"id": "55bbf050-6947-4c52-b213-29cb5e043ace",
 			"description": "Operations about user."
 		}
 	]
