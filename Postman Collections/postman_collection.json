@@ -1386,7 +1386,34 @@
 											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
 											"});\r",
 											"\r",
-											""
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"  return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1475,7 +1502,34 @@
 											"  pm.expect(jsonData.status).to.equal(\"sold\");\r",
 											"});\r",
 											"\r",
-											""
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1495,6 +1549,31 @@
 						}
 					],
 					"id": "fe943f47-2709-4842-aedb-b76ba1919582"
+				},
+				{
+					"name": "DeletePet",
+					"item": [
+						{
+							"name": "DeletePet",
+							"id": "05c6155c-f906-46d1-9aaf-1b7f8eaa888b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "special-key",
+										"type": "text"
+									}
+								],
+								"url": "{{baseUrl}}/pet/8830"
+							},
+							"response": []
+						}
+					],
+					"id": "0e883b7a-2e5b-4ef2-a031-10dc7f576c24"
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
