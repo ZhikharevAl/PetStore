@@ -1381,9 +1381,12 @@
 											"  pm.response.to.have.jsonBody();\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"  pm.expect(pm.response.message).to.equal(8830);\r",
-											"});"
+											"pm.test(\"Response message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
+											"});\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
