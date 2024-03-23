@@ -1418,6 +1418,51 @@
 								"url": "{{baseUrl}}/pet/8830"
 							},
 							"response": []
+						},
+						{
+							"name": "findById",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "55eded83-61c8-477b-af24-67562ecf6d5f",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response fields are correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.id).to.equal(8830);\r",
+											"  pm.expect(jsonData.category.id).to.equal(13);\r",
+											"  pm.expect(jsonData.category.name).to.equal(\"firefly\");\r",
+											"  pm.expect(jsonData.name).to.equal(\"redfinch\");\r",
+											"  pm.expect(jsonData.photoUrls[0]).to.equal(\"string\");\r",
+											"  pm.expect(jsonData.tags[0].id).to.equal(13);\r",
+											"  pm.expect(jsonData.tags[0].name).to.equal(\"chaffinch\");\r",
+											"  pm.expect(jsonData.status).to.equal(\"sold\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "908fc1db-3175-498d-97f1-b57ce7bcbf2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/pet/8830"
+							},
+							"response": []
 						}
 					],
 					"id": "fe943f47-2709-4842-aedb-b76ba1919582"
