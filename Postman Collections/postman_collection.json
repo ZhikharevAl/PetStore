@@ -1644,7 +1644,26 @@
 		},
 		{
 			"name": "Store",
-			"item": [],
+			"item": [
+				{
+					"name": "AddOrder",
+					"item": [
+						{
+							"name": "AddOrder",
+							"id": "48f40556-eb0e-40c2-bdce-ae06d10f4448",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "52ec5e11-689a-43c9-925b-d03cc77c9837"
+				}
+			],
 			"id": "6b95c7a0-df19-46d3-aad7-6fab4b528156",
 			"description": "Access to Petstore orders."
 		},
