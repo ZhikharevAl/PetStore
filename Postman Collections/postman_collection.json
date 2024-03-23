@@ -1650,13 +1650,38 @@
 					"item": [
 						{
 							"name": "AddOrder",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "48f40556-eb0e-40c2-bdce-ae06d10f4448",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1519,\r\n  \"petId\": 8,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2024-03-23T12:15:07.674Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/store/order"
 							},
 							"response": []
 						}
