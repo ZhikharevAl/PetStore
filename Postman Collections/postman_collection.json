@@ -1420,65 +1420,6 @@
 							"response": []
 						},
 						{
-							"name": "UpdatePet Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "58ad627f-60ad-4fb4-8a48-9315e5a1c33c",
-										"exec": [
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"  pm.expect(pm.response.code).to.equal(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response content-type is json\", function () {\r",
-											"    const type = pm.response.headers.get('Content-Type');\r",
-											"    pm.expect(type).to.include('application/json');\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response has a valid body\", function () {\r",
-											"  pm.response.to.have.jsonBody();\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response message is correct\", function () {\r",
-											"  var jsonData = pm.response.json();\r",
-											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
-											"});\r",
-											"\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "a1814fb4-39f5-4fa2-bd2e-dd9e83abc3fc",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "redfinch",
-											"type": "text"
-										},
-										{
-											"key": "statusq",
-											"value": "sold",
-											"type": "text"
-										}
-									]
-								},
-								"url": "{{baseUrl}}/pet/8830"
-							},
-							"response": []
-						},
-						{
 							"name": "findById",
 							"event": [
 								{
