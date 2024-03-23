@@ -1356,6 +1356,24 @@
 						}
 					],
 					"id": "0cb11848-de96-43c1-a49a-cd02bc60f5fd"
+				},
+				{
+					"name": "UpdatePetFromData",
+					"item": [
+						{
+							"name": "UpdatePet",
+							"id": "54b5c8f5-8d87-45d5-bd2e-c706449e8886",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "fe943f47-2709-4842-aedb-b76ba1919582"
 				}
 			],
 			"id": "899e3057-a9e2-4f4a-a376-1e2ec24f1218",
