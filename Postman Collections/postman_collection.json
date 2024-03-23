@@ -1555,6 +1555,29 @@
 					"item": [
 						{
 							"name": "DeletePet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "91c3ed6d-d746-4503-85d9-edf420fd4a1c",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"8830\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "05c6155c-f906-46d1-9aaf-1b7f8eaa888b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1568,6 +1591,46 @@
 										"type": "text"
 									}
 								],
+								"url": "{{baseUrl}}/pet/8830"
+							},
+							"response": []
+						},
+						{
+							"name": "findByID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b87540aa-d493-4dd7-a78d-d314e44cfcfa",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(1);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Type is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.type).to.equal(\"error\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"Pet not found\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8c006de5-65b3-4ec5-9fe6-cf1b5bb1cbbb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
 								"url": "{{baseUrl}}/pet/8830"
 							},
 							"response": []
