@@ -1982,6 +1982,48 @@
 								"url": "{{baseUrl}}/store/order"
 							},
 							"response": []
+						},
+						{
+							"name": "AddOrder Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"bad input\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c77c00a5-9c97-44b6-9684-74b6d02d04ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1519,\r\n  \"petId\": 8,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2024-03-23T12:15:07.674Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": exactly\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/store/order"
+							},
+							"response": []
 						}
 					],
 					"id": "52ec5e11-689a-43c9-925b-d03cc77c9837"
