@@ -1902,6 +1902,48 @@
 							"response": []
 						},
 						{
+							"name": "AddOrderWrongShipDate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"something bad happened\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6fa054d6-d725-448e-8313-2c9bfd3f924a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1519,\r\n  \"petId\": 8,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"Sep 28 19:00:00 +0000\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/store/order"
+							},
+							"response": []
+						},
+						{
 							"name": "AddOrder Copy",
 							"event": [
 								{
@@ -2008,7 +2050,7 @@
 									}
 								}
 							],
-							"id": "6fa054d6-d725-448e-8313-2c9bfd3f924a",
+							"id": "561bba5f-5fb2-488f-a39a-64de0aaf3728",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
