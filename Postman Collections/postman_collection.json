@@ -1786,7 +1786,11 @@
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(500);\r",
 											"});\r",
-											""
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"something bad happened\");\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1803,6 +1807,175 @@
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n  \"id\": \"1234q\",\r\n  \"petId\": 8,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2024-03-23T12:15:07.674Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/store/order"
+							},
+							"response": []
+						},
+						{
+							"name": "AddOrderWrongPetID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"bad input\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6e05542d-49f2-4312-af87-f8148865be00",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1519,\r\n  \"petId\": two,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2024-03-23T12:15:07.674Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/store/order"
+							},
+							"response": []
+						},
+						{
+							"name": "AddOrder Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ID field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('id');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet ID field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('petId');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Quantity field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('quantity');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Ship date field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('shipDate');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('status');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Complete status field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('complete');\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"ID is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.id).to.equal(1519);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet ID is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.petId).to.equal(8);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Quantity is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.quantity).to.equal(2);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.status).to.equal(\"placed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Complete status is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.complete).to.equal(true);\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Pet ID</th>\r",
+											"        <th>Quantity</th>\r",
+											"        <th>Ship Date</th>\r",
+											"        <th>Status</th>\r",
+											"        <th>Complete</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.petId}}</td>\r",
+											"        <td>{{response.quantity}}</td>\r",
+											"        <td>{{response.shipDate}}</td>\r",
+											"        <td>{{response.status}}</td>\r",
+											"        <td>{{response.complete}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "33dad6bf-a7fc-4e7f-8bd2-b2ebe74b017c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 1519,\r\n  \"petId\": 8,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2024-03-23T12:15:07.674Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
