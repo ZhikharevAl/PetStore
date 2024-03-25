@@ -2512,7 +2512,7 @@
 							"response": []
 						},
 						{
-							"name": "AddNewUser Copy",
+							"name": "AddNewUserArray",
 							"event": [
 								{
 									"listen": "test",
@@ -2522,6 +2522,12 @@
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
 											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"ok\");\r",
+											"});\r",
+											"\r",
 											"var template = `\r",
 											"<style type=\"text/css\">\r",
 											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
@@ -2565,14 +2571,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"id\": 7,\r\n  \"username\": \"Fedor\",\r\n  \"firstName\": \"Ivanovich\",\r\n  \"lastName\": \"Ivanov\",\r\n  \"email\": \"string@mail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+9999123\",\r\n  \"userStatus\": 0\r\n}",
+									"raw": "[\r\n  {\r\n    \"id\": 121,\r\n    \"username\": \"John\",\r\n    \"firstName\": \"Malchovich\",\r\n    \"lastName\": \"Malchovich\",\r\n    \"email\": \"string@mail.com\",\r\n    \"password\": \"1234\",\r\n    \"phone\": \"+9999\",\r\n    \"userStatus\": 0\r\n  },\r\n  {\r\n    \"id\": 122,\r\n    \"username\": \"Fill\",\r\n    \"firstName\": \"Spenser\",\r\n    \"lastName\": \"Fillovich\",\r\n    \"email\": \"string@mail.com\",\r\n    \"password\": \"123\",\r\n    \"phone\": \"+88888\",\r\n    \"userStatus\": 0\r\n  },\r\n  {\r\n    \"id\": 123,\r\n    \"username\": \"Adam\",\r\n    \"firstName\": \"Adam junior\",\r\n    \"lastName\": \"Black\",\r\n    \"email\": \"string@mail.com\",\r\n    \"password\": \"123\",\r\n    \"phone\": \"+6666\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{baseUrl}}/user"
+								"url": "{{baseUrl}}/user/createWithArray"
 							},
 							"response": []
 						}
