@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "1ce882b1-c8c9-4e7c-99af-3078a9339706",
+		"_postman_id": "aff1ea8e-830a-499d-9df3-d7e0c6572609",
 		"name": "PetStore",
 		"description": "This is a sample server Petstore server.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "14878406-1ce882b1-c8c9-4e7c-99af-3078a9339706"
+		"_uid": "14878406-aff1ea8e-830a-499d-9df3-d7e0c6572609"
 	},
 	"item": [
 		{
@@ -19,7 +19,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "539d520a-8878-4d21-a5c5-05db9f1d3278",
+										"id": "d706f710-f94a-42b1-ac58-863a7ae1f5ca",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -99,7 +99,7 @@
 									}
 								}
 							],
-							"id": "23b77aad-3c4a-4549-b63b-51ecb8dc79d5",
+							"id": "6d2ec063-b2aa-4231-aca6-3e5f78941f84",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -133,7 +133,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "03f5bd6c-87ae-43b4-85c4-41a8e36e8c16",
+										"id": "37192813-efc3-4218-a878-712ccc792380",
 										"exec": [
 											"pm.test(\"Invalid input should return 405\", function () {\r",
 											"  if (pm.response.code !== 405) {\r",
@@ -183,7 +183,7 @@
 									}
 								}
 							],
-							"id": "10de4694-0acf-4c75-8273-531472d9f26f",
+							"id": "1952e300-9a7e-474f-aa8a-96ac9ea0cda3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -212,7 +212,7 @@
 							"response": []
 						}
 					],
-					"id": "2c6e1173-172e-41a9-9f9f-1aa387b601ab"
+					"id": "327c1379-a2be-425b-93dd-a9db5a7c46bb"
 				},
 				{
 					"name": "UploadImadge",
@@ -223,7 +223,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3fdfaba6-8db4-4a99-92ee-85898a8da1ec",
+										"id": "7a07f255-71d9-4788-a4c9-e69cfcc00490",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -281,7 +281,7 @@
 									}
 								}
 							],
-							"id": "917b8ea5-2ad5-479e-89d8-3eb94af5825d",
+							"id": "68fe3c00-bf99-462f-ae13-71d6091a6bac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -322,7 +322,7 @@
 							"response": []
 						}
 					],
-					"id": "49752178-e6d1-40cb-babf-7dd78cc93d58"
+					"id": "7be85315-ebf6-45d9-8087-6691478af68f"
 				},
 				{
 					"name": "FindByStatus",
@@ -333,7 +333,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "92fc3023-7b5d-4ecf-83d8-17d32a4ad806",
+										"id": "23c6946d-b19a-459a-aadb-7ecf240b6546",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -413,7 +413,7 @@
 									}
 								}
 							],
-							"id": "eb9f0467-7a8b-4063-9113-d74ed5cb3c9c",
+							"id": "14aa8cb6-b1c4-49f3-a0bc-6b3f6f932057",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -451,7 +451,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "66c1f2d4-5944-4b44-97c3-2e804addd2e6",
+										"id": "db304973-0477-4770-b9a3-55eb7491828f",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -534,7 +534,7 @@
 									}
 								}
 							],
-							"id": "2f6614d2-ad1e-4020-a0fe-79c73810a8c9",
+							"id": "6232f318-d9e8-48c2-ba59-2ca7b47464e2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -567,7 +567,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "57c8a100-fc33-427c-87ad-5a1d7d4e0431",
+										"id": "004783ad-6465-487e-9ee9-528873b2dcbc",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -648,7 +648,7 @@
 									}
 								}
 							],
-							"id": "ac017411-4026-45dc-acf8-e6c5dc4e3810",
+							"id": "d13a66c9-adf1-4b64-a2d4-dc49ed5d3686",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -681,7 +681,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c39dc25e-d9fb-4f02-9239-2641e74942be",
+										"id": "e7ca80b3-5b0c-4097-ab30-220decbcf2ad",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -758,7 +758,7 @@
 									}
 								}
 							],
-							"id": "d174dea5-95cc-4f66-93c1-91f78e120e2e",
+							"id": "1204cbcf-43ed-4aa7-bfd1-e28d5d9fb89b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -796,7 +796,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "57c94ebb-8d28-4909-b77c-416a698c909e",
+										"id": "4bd5475b-375b-4a6f-83fa-a8156db6be46",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -882,7 +882,7 @@
 									}
 								}
 							],
-							"id": "bf034169-be4b-4396-8a28-eea885a3cb5e",
+							"id": "96029161-704a-49b7-963b-56d4171626c0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -920,7 +920,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ea9c8658-052c-4f90-a231-5f6b0fd1498a",
+										"id": "53af279b-aafd-4e5f-b9a2-79ff93348385",
 										"exec": [
 											"pm.test('Response status code is 200', function () {",
 											"    pm.response.to.have.status(200);",
@@ -1002,7 +1002,7 @@
 									}
 								}
 							],
-							"id": "fdb69ea8-58cf-4e96-bbf3-7c61cf1f2817",
+							"id": "50746634-9d4e-48c0-a9c1-d8fafdc776fe",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"strictSSL": true,
@@ -1040,7 +1040,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9d21b371-cb5a-419c-a0d5-c784a4277810",
+										"id": "d3954dd2-02c5-4601-94d5-5019653079a3",
 										"exec": [
 											"pm.test('Response status code is 200', function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1061,7 +1061,7 @@
 									}
 								}
 							],
-							"id": "c860b75b-8fa8-4c88-baad-dc82e3cdaa0c",
+							"id": "9f3d5fa0-90fd-4d96-af59-dd56b1411e5d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1088,7 +1088,7 @@
 							"response": []
 						}
 					],
-					"id": "4306dacc-056f-4635-8164-0f0a2a283a4d"
+					"id": "19ad969d-e086-4a7d-8a76-7237dc6f0fee"
 				},
 				{
 					"name": "FindByID",
@@ -1099,7 +1099,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f98e872c-1749-4055-a6e3-113811c7778c",
+										"id": "33335bb4-6a40-4352-8950-42ff61b10f17",
 										"exec": [
 											"\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
@@ -1186,7 +1186,7 @@
 									}
 								}
 							],
-							"id": "4287b583-6314-4c95-9587-e81a94e99ad8",
+							"id": "7b5827af-e2a3-42a8-9b7f-6a1d9997b495",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1212,7 +1212,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d4bf4394-ab9b-4241-afa9-dbf7e66c5b05",
+										"id": "2155e8f7-910b-4bc3-9ae9-a3c907919507",
 										"exec": [
 											"pm.test(\"Response status code is 404\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(404);\r",
@@ -1255,7 +1255,7 @@
 									}
 								}
 							],
-							"id": "c96fc580-2da6-4b01-b202-7dda19a817d2",
+							"id": "8c4a50d4-417c-4f09-acb1-0eebe27fb591",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1276,7 +1276,7 @@
 							"response": []
 						}
 					],
-					"id": "1a485e61-f292-4c1a-927f-c6cbb79ba391"
+					"id": "e4ccc85a-a9db-45dc-af17-8280c1ba08e6"
 				},
 				{
 					"name": "UpdatePet",
@@ -1287,7 +1287,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "80bf1132-f73a-45a0-9d32-0110c2e29a37",
+										"id": "633ec7bb-36b3-417f-9d3a-595d67ad108a",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1379,7 +1379,7 @@
 									}
 								}
 							],
-							"id": "7044e1c7-85f6-4d77-9430-6d0d23d90825",
+							"id": "909b359e-0cbc-4224-a46d-dbcc9589e08d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1408,7 +1408,7 @@
 							"response": []
 						}
 					],
-					"id": "c7f03e55-8c7c-4f18-893d-175b16fa41c9"
+					"id": "2a0049b5-18a9-429f-b346-ae3c3256578d"
 				},
 				{
 					"name": "UpdatePetFromData",
@@ -1419,7 +1419,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0c9aeccd-fe5c-4dfd-b19a-0fea99e09c91",
+										"id": "565b787e-fea3-40b3-9527-fd6529ddfaed",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1473,7 +1473,7 @@
 									}
 								}
 							],
-							"id": "9ddc4306-1f84-4f20-94a7-d4137e1ac138",
+							"id": "b3bb3117-9566-4194-a224-5b68814c224e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1514,7 +1514,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3a438f40-dec3-4fa8-a792-8c68b784746c",
+										"id": "7cbbe706-049d-4a42-9aa2-6bcf69a12212",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1598,7 +1598,7 @@
 									}
 								}
 							],
-							"id": "9f6d674e-3553-4e36-a7b3-3e3dce12d44b",
+							"id": "14ad1495-d0f0-4d8b-b178-26a764141964",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1619,7 +1619,7 @@
 							"response": []
 						}
 					],
-					"id": "81e7da8d-42fe-4d7f-a4a2-0340cdd13dbd"
+					"id": "503adfa2-55ac-4aaf-b021-253af0b6c8f9"
 				},
 				{
 					"name": "DeletePet",
@@ -1630,7 +1630,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a609e5c7-f3c2-4937-ac5f-a09ede6de234",
+										"id": "0e14176b-a8b0-4138-8ab5-3849c685f3a2",
 										"exec": [
 											"pm.test(\"Code is correct\", function () {\r",
 											"  var jsonData = pm.response.json();\r",
@@ -1649,7 +1649,7 @@
 									}
 								}
 							],
-							"id": "bfe1bd23-01f2-4f23-83b9-dbdde1b32827",
+							"id": "e4d625fe-cfaa-449d-aa6c-c800d738485c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1681,7 +1681,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "49e59257-2450-4206-a9f6-ed7f6a036652",
+										"id": "8c195c9a-2142-4ac7-94ab-f987f6e6e968",
 										"exec": [
 											"pm.test(\"Code is correct\", function () {\r",
 											"  var jsonData = pm.response.json();\r",
@@ -1704,7 +1704,7 @@
 									}
 								}
 							],
-							"id": "a4728628-460a-4ae5-927d-e5dc77bb326d",
+							"id": "f67559ac-c8b4-4659-a79a-c1cdb49e6f04",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1725,10 +1725,10 @@
 							"response": []
 						}
 					],
-					"id": "172bd1aa-0389-424d-93b5-6ffd005ee9e0"
+					"id": "f6dd1ef1-5ab3-4fe3-98da-dc739cd46137"
 				}
 			],
-			"id": "ce0e46aa-c625-47ae-ac92-32ec6d76e37e",
+			"id": "5727eb14-820c-4230-9caa-e8dfe580ba67",
 			"description": "Everything about your Pets."
 		},
 		{
@@ -1743,7 +1743,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "be607252-14df-446a-8fcd-aea01d578cc7",
+										"id": "40aafad2-ad15-4c8d-9767-6739e6c68cbd",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -1844,7 +1844,7 @@
 									}
 								}
 							],
-							"id": "f3385dd1-cce1-46d2-acdd-1187b244c01c",
+							"id": "ac8b3c73-6ec7-41ae-a18b-77db8c9465fe",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1879,7 +1879,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4f3c5a82-7bb2-4fbc-bc61-d66543a5f977",
+										"id": "0cfdeff1-fee4-47be-9efe-571cccbc86ec",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(500);\r",
@@ -1895,7 +1895,7 @@
 									}
 								}
 							],
-							"id": "0b56a5ce-4f8b-4ffa-8aaa-8c336cf6831e",
+							"id": "2ad8abb6-57eb-4d5f-8bc5-7014f17fda00",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1930,7 +1930,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dc4fcb99-698a-47ef-9e20-f12abad65756",
+										"id": "e389d50a-2d2e-4f11-bd0a-0c3dab7488ad",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(400);\r",
@@ -1946,7 +1946,7 @@
 									}
 								}
 							],
-							"id": "19e7cd45-71d6-4e2e-887f-efcdd869d924",
+							"id": "525e4427-a1df-46ca-a60b-7fa13f3e1fe0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1981,7 +1981,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "523db4be-2bfe-46cc-8d24-d0bf3d3e21bb",
+										"id": "be99b514-8793-40b2-bc8e-32ecda0b53cf",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(400);\r",
@@ -1997,7 +1997,7 @@
 									}
 								}
 							],
-							"id": "e661c2aa-7c81-42f5-80d3-5c2e284986f3",
+							"id": "7885aa9b-e30d-4caa-b5f0-e755839dfb56",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2032,7 +2032,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4fbbe3df-de48-4f40-b38f-9ae254b2a46e",
+										"id": "b6f871ef-ecf7-4514-a223-8aee804e0f2d",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(500);\r",
@@ -2048,7 +2048,7 @@
 									}
 								}
 							],
-							"id": "6af04c42-3c7f-4b8f-9744-c0d34226e9a0",
+							"id": "04a9fd8f-37fb-4fb6-9d2e-d3ef256ad33c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2083,7 +2083,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0e33f283-6c4f-4723-abbe-572c512efc4e",
+										"id": "a7fdaf3b-6590-4ee3-8efd-b56f85111dbe",
 										"exec": [
 											"pm.test(\"Response status code is 200 and no error message\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -2096,7 +2096,7 @@
 									}
 								}
 							],
-							"id": "f7a09f07-e3e5-4dbc-bac4-0670c988d9ba",
+							"id": "9f9bf2d2-9df3-4201-813f-01a2b437afd0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2131,7 +2131,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a537a483-4f39-4355-a0f7-b21087e2b3cc",
+										"id": "9ac63344-28d5-4fcc-9d08-9b68476d4f06",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(400);\r",
@@ -2147,7 +2147,7 @@
 									}
 								}
 							],
-							"id": "a3673b27-a4fd-44de-a7a9-cb2c58bd0c3f",
+							"id": "03299420-2847-433a-b0d0-f5ff8ae4688b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2177,7 +2177,7 @@
 							"response": []
 						}
 					],
-					"id": "9eb1cdec-1747-438b-ab63-498d7a1e4ee2"
+					"id": "8a10c867-d2dd-4c87-a7c8-5ff5ec755d05"
 				},
 				{
 					"name": "FindByID",
@@ -2188,7 +2188,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d5a17725-7e80-4020-940b-17153c204e0d",
+										"id": "dc3d3c0a-4506-456c-8fb3-880af7f7be0b",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -2289,7 +2289,7 @@
 									}
 								}
 							],
-							"id": "4fdec2f8-6eb1-4be0-91a3-33ec735dc88e",
+							"id": "94405824-7618-4e77-9b35-184ecc15b153",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2324,7 +2324,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b5fc6b05-34cd-4016-aa85-3121f7303b45",
+										"id": "45455c8f-a35a-4fa4-a930-32f7f723ca85",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -2425,7 +2425,7 @@
 									}
 								}
 							],
-							"id": "e5ab7346-9f68-43e1-82f7-b6261e962567",
+							"id": "c80d749c-9751-4682-9ae7-1ee814587047",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2452,7 +2452,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7c16b2ec-79c3-4a6c-9dda-e07aa927d633",
+										"id": "b6671d68-c231-4017-a951-eb3d0214e956",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(404);\r",
@@ -2468,7 +2468,7 @@
 									}
 								}
 							],
-							"id": "fb1320c1-c745-4bbd-be70-03cd39cd256d",
+							"id": "a1508adf-e81d-48f1-b657-1cd934c0ca66",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2490,7 +2490,7 @@
 							"response": []
 						}
 					],
-					"id": "adf065d7-2107-46cc-99f7-3cdc53d7a531"
+					"id": "f74d49e8-6184-4391-90f0-4e5685428102"
 				},
 				{
 					"name": "DeletByOrderID",
@@ -2501,7 +2501,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "917f387b-a052-4786-b683-f08ddb388df7",
+										"id": "0fbcae12-15c2-4071-a362-236d90182fe4",
 										"exec": [
 											"pm.test(\"Code is correct\", function () {\r",
 											"  var jsonData = pm.response.json();\r",
@@ -2519,7 +2519,7 @@
 									}
 								}
 							],
-							"id": "2c364e8d-d37a-47f6-9966-3a5d56f1ca3f",
+							"id": "e4a22a0b-2160-4592-952b-d46d562021c2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2546,7 +2546,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b09f24a7-866b-4db0-93ce-0f3421c55c38",
+										"id": "1b9ee89c-95a7-4ecf-bedf-f369c128aeb5",
 										"exec": [
 											"pm.test(\"Code is correct\", function () {\r",
 											"  var jsonData = pm.response.json();\r",
@@ -2564,7 +2564,7 @@
 									}
 								}
 							],
-							"id": "1c1cf403-b938-4902-98cc-877735f9d0c4",
+							"id": "033d6155-8594-4a8e-9f27-b47ad846bb3c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2586,7 +2586,7 @@
 							"response": []
 						}
 					],
-					"id": "d89ea3fb-afe6-4ea2-a902-1b2da38fc7b9"
+					"id": "81b1fa9e-15df-4109-b0bb-b31f1749c434"
 				},
 				{
 					"name": "GetStoreInventory",
@@ -2597,7 +2597,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "556fde0b-b22a-4363-9c73-f4cd005f6265",
+										"id": "16bb9526-8636-41e6-8d07-f1f6f3976a99",
 										"exec": [
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"  pm.expect(pm.response.code).to.equal(200);\r",
@@ -2623,7 +2623,7 @@
 									}
 								}
 							],
-							"id": "42a37519-9b2f-4e31-91de-9e770f0a371c",
+							"id": "e7d67cf1-cb65-4ddf-8fa4-0e5426f23a26",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2644,16 +2644,259 @@
 							"response": []
 						}
 					],
-					"id": "ff3a93dd-2615-4fa2-9af3-2947fedcfc4e"
+					"id": "8fbb62de-e33a-4c8c-8fdd-b2b6911dafa5"
 				}
 			],
-			"id": "00ff2d3e-ef06-4c30-b48e-04f7a45d3d2f",
+			"id": "40dc9003-ff8a-4a7d-9f5d-7b42aef5632f",
 			"description": "Access to Petstore orders."
 		},
 		{
 			"name": "User",
-			"item": [],
-			"id": "c8750181-2d5e-47a4-a216-34ef89f20d90",
+			"item": [
+				{
+					"name": "AddNewUser",
+					"item": [
+						{
+							"name": "AddNewUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4dbf922a-b2a3-4b3d-bbd2-0807001508f4",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Code</th>\r",
+											"        <th>Type</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.code}}</td>\r",
+											"        <td>{{response.type}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e366cf48-a71a-4632-a5bc-38d3f5bb2537",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"username\": \"Fedor\",\r\n  \"firstName\": \"Ivanovich\",\r\n  \"lastName\": \"Ivanov\",\r\n  \"email\": \"string@mail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+9999123\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "d08daa96-ff21-4eed-be75-613e34161116"
+				},
+				{
+					"name": "FindByUsername",
+					"item": [
+						{
+							"name": "FindByUsername",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "df7b444c-7425-4278-86a2-6d35a223b509",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if id field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if username field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('username');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if firstName field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('firstName');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if lastName field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('lastName');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if email field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('email');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if password field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('password');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if phone field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('phone');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if userStatus field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('userStatus');\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Username</th>\r",
+											"        <th>First Name</th>\r",
+											"        <th>Last Name</th>\r",
+											"        <th>Email</th>\r",
+											"        <th>Password</th>\r",
+											"        <th>Phone</th>\r",
+											"        <th>User Status</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.username}}</td>\r",
+											"        <td>{{response.firstName}}</td>\r",
+											"        <td>{{response.lastName}}</td>\r",
+											"        <td>{{response.email}}</td>\r",
+											"        <td>{{response.password}}</td>\r",
+											"        <td>{{response.phone}}</td>\r",
+											"        <td>{{response.userStatus}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ecfe1a53-4436-40c0-aba5-99e6e2156965",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/Fedor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"Fedor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FindByWrongUsername",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "44a4e433-4017-464a-aa5e-ceaaca3e2508",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"User not found\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d3376688-80c7-474c-befd-19e513fbc65a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/Fedorof",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"Fedorof"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "03a14560-edfe-4fd5-8d36-4f920e3499d8"
+				}
+			],
+			"id": "7bc61f98-0ce3-4072-874a-85072f4f441f",
 			"description": "Operations about user."
 		}
 	]
