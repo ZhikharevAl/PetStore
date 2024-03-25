@@ -2442,7 +2442,26 @@
 		},
 		{
 			"name": "User",
-			"item": [],
+			"item": [
+				{
+					"name": "AddNewUser",
+					"item": [
+						{
+							"name": "AddNewUser",
+							"id": "7ed3d123-f84f-4cac-ade3-a8af2e4c26ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "1b2e8ad7-cca6-4b3d-ba93-b225b4a21270"
+				}
+			],
 			"id": "6b3d72d6-d57b-4da4-a3a1-a4ab309ff685",
 			"description": "Operations about user."
 		}
