@@ -2519,13 +2519,140 @@
 					"item": [
 						{
 							"name": "FindByUsername",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "54610ba2-4754-4f4c-9aca-6d4f773eb033",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if id field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if username field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('username');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if firstName field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('firstName');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if lastName field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('lastName');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if email field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('email');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if password field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('password');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if phone field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('phone');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if userStatus field is present\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property('userStatus');\r",
+											"});\r",
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>ID</th>\r",
+											"        <th>Username</th>\r",
+											"        <th>First Name</th>\r",
+											"        <th>Last Name</th>\r",
+											"        <th>Email</th>\r",
+											"        <th>Password</th>\r",
+											"        <th>Phone</th>\r",
+											"        <th>User Status</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.id}}</td>\r",
+											"        <td>{{response.username}}</td>\r",
+											"        <td>{{response.firstName}}</td>\r",
+											"        <td>{{response.lastName}}</td>\r",
+											"        <td>{{response.email}}</td>\r",
+											"        <td>{{response.password}}</td>\r",
+											"        <td>{{response.phone}}</td>\r",
+											"        <td>{{response.userStatus}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "88ca952f-0892-45a3-867d-1f9c95203064",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": "{{baseUrl}}/user/Fedor"
+							},
+							"response": []
+						},
+						{
+							"name": "FindByWrongUsername",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "54610ba2-4754-4f4c-9aca-6d4f773eb033",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"User not found\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "92695ac0-e828-4f5f-bece-c59031da3c60",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/user/Fedorof"
 							},
 							"response": []
 						}
