@@ -2275,6 +2275,18 @@
 								"url": "{{baseUrl}}/store/order/1519"
 							},
 							"response": []
+						},
+						{
+							"name": "FindByInvalidID",
+							"id": "8f9b171a-a202-425e-ba5d-542f04349992",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "e1839735-b5d4-47e0-b0cc-fe58e8f47a14"
