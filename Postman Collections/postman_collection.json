@@ -2350,14 +2350,37 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "DeleteByWrongID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2b81caa8-c052-4383-b139-760ca5c82d45",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(404);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"Order Not Found\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "14eb11ad-04e9-4b22-9bd6-309353b78c2a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/store/order/151999999"
 							},
 							"response": []
 						}
