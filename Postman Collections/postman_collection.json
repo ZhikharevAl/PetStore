@@ -2310,6 +2310,59 @@
 						}
 					],
 					"id": "e1839735-b5d4-47e0-b0cc-fe58e8f47a14"
+				},
+				{
+					"name": "DeletByOrderID",
+					"item": [
+						{
+							"name": "DeleteByOrderID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "258b2d5d-70f6-4a15-babd-40e44c22eef1",
+										"exec": [
+											"pm.test(\"Code is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"1519\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "fc26e4e1-9914-43aa-8050-601b9343bdaa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/store/order/1519"
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "14eb11ad-04e9-4b22-9bd6-309353b78c2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "9e3f92f8-5b2e-4e82-9a4d-0591b4cd093a"
 				}
 			],
 			"id": "6b95c7a0-df19-46d3-aad7-6fab4b528156",
