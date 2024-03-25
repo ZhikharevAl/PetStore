@@ -2386,6 +2386,55 @@
 						}
 					],
 					"id": "9e3f92f8-5b2e-4e82-9a4d-0591b4cd093a"
+				},
+				{
+					"name": "GetStoreInventory",
+					"item": [
+						{
+							"name": "ReturnsStatus",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "075f4b9e-00d7-4a2a-82e4-1fb2d79f1348",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ID field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('sold');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ID field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('pending');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ID field is present\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData).to.have.property('available');\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "223ed13b-9535-426d-b750-6c7d48ce1f74",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/store/inventory"
+							},
+							"response": []
+						}
+					],
+					"id": "46a65e96-575c-4eea-a8a1-9226fa9077a3"
 				}
 			],
 			"id": "6b95c7a0-df19-46d3-aad7-6fab4b528156",
