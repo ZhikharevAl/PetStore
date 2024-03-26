@@ -2729,6 +2729,34 @@
 						}
 					],
 					"id": "5280b5db-eb71-4e5a-9e31-82e51d17e941"
+				},
+				{
+					"name": "UpdateUser",
+					"item": [
+						{
+							"name": "UpdateUser",
+							"id": "eb3ae400-d456-4c68-87be-a8996b4908e4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"username\": \"Fedor\",\r\n  \"firstName\": \"Fedorov\",\r\n  \"lastName\": \"Ivanov\",\r\n  \"email\": \"string@mail.com\",\r\n  \"password\": \"str\",\r\n  \"phone\": \"+8988989\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/user/Fedor"
+							},
+							"response": []
+						}
+					],
+					"id": "15189758-90f1-44fa-89d1-6675a2b303fc"
 				}
 			],
 			"id": "6b3d72d6-d57b-4da4-a3a1-a4ab309ff685",
