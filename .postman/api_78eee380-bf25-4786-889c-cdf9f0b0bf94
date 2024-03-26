@@ -9,7 +9,7 @@ id = 78eee380-bf25-4786-889c-cdf9f0b0bf94
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"14878406-e9ef9f20-b2fb-4915-b7ae-f53aa5bf0a50","path":"PetStore.json","metaData":{}}
+files[] = {"id":"14878406-81f76ba0-1e73-4096-829e-df934e7e14b9","path":"PetStore.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
