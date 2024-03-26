@@ -2788,7 +2788,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"id\": 7,\r\n  \"username\": \"Fedor\",\r\n  \"firstName\": \"Fedorov\",\r\n  \"lastName\": \"Ivanov\",\r\n  \"email\": \"string@mail.com\",\r\n  \"password\": \"str\",\r\n  \"phone\": \"+8988989\",\r\n  \"userStatus\": 0\r\n}",
+									"raw": "{\r\n  \"id\": 7,\r\n  \"username\": \"Fedor\",\r\n  \"firstName\": \"Fedorov\",\r\n  \"lastName\": \"Ivanov\",\r\n  \"email\": \"string@mail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+8988989\",\r\n  \"userStatus\": 0\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
