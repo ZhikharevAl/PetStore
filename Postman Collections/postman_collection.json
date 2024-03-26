@@ -2864,6 +2864,63 @@
 						}
 					],
 					"id": "e22b7160-c495-4316-8eb1-8b0c5b3063c7"
+				},
+				{
+					"name": "UserLogOut",
+					"item": [
+						{
+							"name": "LogOut",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4fed3649-5830-49e0-b9b2-d9c77b79070a",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct\", function () {\r",
+											"  var jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.message).to.equal(\"ok\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b94ce17e-2bfa-4688-90ba-e8e3da920dae",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/user/logout"
+							},
+							"response": []
+						}
+					],
+					"id": "e131ef4e-0091-45cf-9b4d-297636a91a64"
+				},
+				{
+					"name": "DeleteUser",
+					"item": [
+						{
+							"name": "New Request",
+							"id": "53b68861-526b-44e1-855c-253719bf31eb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "2a47d5a8-075a-400e-882a-33a0ae96d1a4"
 				}
 			],
 			"id": "6b3d72d6-d57b-4da4-a3a1-a4ab309ff685",
