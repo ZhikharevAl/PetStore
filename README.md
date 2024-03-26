@@ -2,7 +2,7 @@
 
 ## Введение
 
-Этот проект содержит коллекцию Postman и тесты для [Swagger Petstore API](https://learning.postman.com/docs/integrations/ci-integrations/).
+Этот проект содержит коллекцию Postman и тесты для [Swagger Petstore API](https://petstore.swagger.io/).
 
 ## Установка
 
