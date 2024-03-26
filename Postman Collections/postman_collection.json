@@ -2806,7 +2806,28 @@
 					"name": "UserLogin",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "Logged",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "237b0129-1298-4ef7-b68f-74695c78d81c",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"  pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message starts with expected text\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.match(/^logged in user session/);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "bcc84c0b-8603-4d82-b852-227753b76ad7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2815,29 +2836,26 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/user/user/login?&username=Fedor&password=12345",
+									"raw": "{{baseUrl}}/user/login?&username=Fedor&password=12345",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"user",
-										"user",
 										"login"
 									],
 									"query": [
 										{
-											"key": "",
+											"key": null,
 											"value": null
 										},
 										{
 											"key": "username",
-											"value": "Fedor",
-											"type": "text"
+											"value": "Fedor"
 										},
 										{
 											"key": "password",
-											"value": "12345",
-											"type": "text"
+											"value": "12345"
 										}
 									]
 								}
