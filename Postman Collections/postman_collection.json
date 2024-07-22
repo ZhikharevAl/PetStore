@@ -2191,14 +2191,24 @@
 									"script": {
 										"id": "209d2e00-124d-4fab-bf52-ea27b28be8e7",
 										"exec": [
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"  pm.expect(pm.response.code).to.equal(500);\r",
+											"// @allure.label.owner=QAEngineer\r",
+											"// @allure.label.severity=normal\r",
+											"// @allure.label.tag=PetAPI\r",
+											"// @allure.feature=PetStoreAPI\r",
+											"// @allure.story=RetrieveSoldPets\r",
+											"// @allure.description=Verify the response structure and content for sold pets\r",
+											"\r",
+											"pm.test('Response status code is 200', function () {\r",
+											"    // @allure.step=Check response status code\r",
+											"    pm.expect(pm.response.code).to.equal(500);\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Message is correct\", function () {\r",
-											"  var jsonData = pm.response.json();\r",
-											"  pm.expect(jsonData.message).to.equal(\"something bad happened\");\r",
-											"});"
+											"    // @allure.step=Validate response message\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.equal(\"something bad happened\");\r",
+											"});\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
