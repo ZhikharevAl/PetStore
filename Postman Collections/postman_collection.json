@@ -938,7 +938,6 @@
 											"    });",
 											"});",
 											"",
-											"});",
 											"var template = `",
 											"<style type=\"text/css\">",
 											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
